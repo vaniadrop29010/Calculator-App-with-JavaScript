@@ -9,18 +9,17 @@ keys.addEventListener("click", (event) => {
       let operation_string = resultsDisplay.textContent
       let calculation_results = calculator(operation_string)
       resultsDisplay.textContent = `${calculation_results}`
-    }
-    else if (keyValue === "C") {
+    } else if (keyValue === "C") {
       resultsDisplay.textContent = ""
-      
-    }
-    else {
+    } else if (keyValue === "del") {
+      if (resultsDisplay.textContent.length > 0) {
+        resultsDisplay.textContent = resultsDisplay.textContent.slice(0, -1);
+      }
+    } else {
       resultsDisplay.textContent += keyValue
     }
   }
-  
 })
-
 function calculator(operationString) {
   return eval(operationString)
 }
